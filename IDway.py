@@ -49,19 +49,14 @@ class IDway:
         
         return validation_results
 
-    def validate_dl(image_path):
-        """
-        Main function to process the DL image and validate it.
-        """
-        # Preprocess the image
-        processed_image = preprocess_image(image_path)
-        
+    def validate_dl(self):
+        processed_image = self._preprocess_image(self.image_path) # Preprocess the image
+        extracted_text = self._extract_text_from_image(processed_image) # Extract text from the image
+        validation_results = self._validate_dl_text(extracted_text) # Validate the extracted text
+
         # Extract text from the image
         extracted_text = extract_text_from_image(processed_image)
         print("Extracted Text:\n", extracted_text)
-        
-        # Validate the extracted text
-        validation_results = validate_dl_text(extracted_text)
         print("\nValidation Results:")
         for field, result in validation_results.items():
             print(f"{field}: {'Valid' if result else 'Invalid'}")
