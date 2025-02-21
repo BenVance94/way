@@ -7,33 +7,28 @@ class IDway:
     def __init__(self, image_path):
         self.image_path = image_path
 
-    def preprocess_image(image_path):
-        """
-        Preprocess the image for better OCR accuracy.
-        """
-        # Load the image
-        image = cv2.imread(image_path, cv2.IMREAD_COLOR)
-        
-        # Convert to grayscale
-        gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-        
-        # Apply thresholding to get a binary image
-        _, binary = cv2.threshold(gray, 150, 255, cv2.THRESH_BINARY)
-        
+    def _preprocess_image(self):
+        '''
+        Converts to Gray Scale and then Binary (using CV2)
+        '''
+        image = cv2.imread(self.image_path, cv2.IMREAD_COLOR) # Load the image
+        gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY) # Convert to grayscale
+        _, binary = cv2.threshold(gray, 150, 255, cv2.THRESH_BINARY) # Apply thresholding to get a binary image
         return binary
     
-    def extract_text_from_image(image):
-        """
-        Extract text from the preprocessed image using Tesseract OCR.
-        """
-        # Use Tesseract to extract text
-        text = pytesseract.image_to_string(image)
-        return text
+    def _extract_text_from_image(self, image):
+        '''
+        Use Tesseract to extract text from the altered image
+        '''
+        return pytesseract.image_to_string(image) 
 
-    def validate_dl_text(text):
-        """
-        Validate the extracted text to check if it contains key DL fields.
-        """
+    def _validate_dl_text(self, text):
+        '''
+        Using Regex to match on the text extracted from the altered image
+        - Name pattern
+        - Date of Birth
+        - License Number
+        '''
         # Define regex patterns for key fields
         patterns = {
             "name": r"[A-Z]+[A-Z]+,\s[A-Z]",  # Simple name pattern
@@ -49,14 +44,15 @@ class IDway:
         
         return validation_results
 
-    def validate_dl(self):
-        processed_image = self._preprocess_image(self.image_path) # Preprocess the image
+    def output(self):
+        '''
+        Runs all the methods and produces an output
+        '''
+        processed_image = self._preprocess_image() # Preprocess the image
         extracted_text = self._extract_text_from_image(processed_image) # Extract text from the image
         validation_results = self._validate_dl_text(extracted_text) # Validate the extracted text
 
-        # Extract text from the image
-        extracted_text = extract_text_from_image(processed_image)
-        print("Extracted Text:\n", extracted_text)
+        #print("Extracted Text:\n", extracted_text)
         print("\nValidation Results:")
         for field, result in validation_results.items():
             print(f"{field}: {'Valid' if result else 'Invalid'}")
