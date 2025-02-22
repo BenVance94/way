@@ -1,8 +1,5 @@
 # way
-Who Are You (WAY)
-
-## Overview
-WAY is a Python-based tool designed to detect and analyze fake IDs. It leverages advanced image processing and OCR techniques to identify potential fraud and validate ID authenticity.
+Who Are You (WAY) is a Python-based tool designed to detect and analyze fake IDs. It leverages advanced image processing and OCR techniques to identify potential fraud and validate ID authenticity.
 
 ## Features
 
