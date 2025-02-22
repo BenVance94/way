@@ -1,0 +1,32 @@
+{
+    "fake_id.jpg": {
+        "first_name": "McLovin",
+        "last_name": "McLovin",
+        "street_address": "892 Momona Street Honolulu, HI 96820",
+        "date_of_birth": "06/03/1981"
+    },
+    "legit_id.jpg": {
+        "first_name": "Benjamin",
+        "last_name": "Vance",
+        "street_address": "429 E 65th St Apt 15, New York, NY 10065",
+        "date_of_birth": "07/26/1994"
+    },
+    "crabs_id.jpg": {
+        "first_name": "Eugene",
+        "last_name": "Krabs",
+        "street_address": "3541 Anchor Way Bikini Bottom",
+        "date_of_birth": "11/30/1942"
+    },
+    "ct_test.jpg": {
+        "first_name": "Connor",
+        "last_name": "Thompson",
+        "street_address": "123 Main St, Hartford, CT 06114",
+        "date_of_birth": "01/12/1967"
+    },
+    "ct_real.jpeg": {
+        "first_name": "Benjamin",
+        "last_name": "Vance",
+        "street_address": "850 Pacific St Apt 1660, Stamford, CT 06902",
+        "date_of_birth": "07/26/1994"
+    }
+}
