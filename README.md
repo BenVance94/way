@@ -18,13 +18,14 @@ WAY is a Python-based tool designed to detect and analyze fake IDs. It leverages
     - Verifies microprint and security features
 
 - **Output**:
+
 The system will output:
--  Fraud score (0-100, where higher scores indicate potential fraud)
--  Risk level (Low/Medium/High)
--  Component scores for text and image analysis
--  Quality metrics
--  Detected fake indicators
--  Extracted text
+- Fraud score (0-100, where higher scores indicate potential fraud)
+- Risk level (Low/Medium/High)
+- Component scores for text and image analysis
+- Quality metrics
+- Detected fake indicators
+- Extracted text
 
 
 ## Installation
